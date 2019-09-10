@@ -9,4 +9,14 @@ The task takes the following parameters
 * Field: The version field to update
 * FilenamePattern: The filename pattern to update defaults to '.json'
 * Recursion: If true will search from specfied path for all matching files, default to true
- 
+
+### Usage
+
+```
+- uses: rfennell/JSONFileVersioner@v1
+    with:
+    Path: 'testdata'
+    Field: 'version'
+    FilenamePattern: '.json' 
+    Recursion: 'true'
+```
