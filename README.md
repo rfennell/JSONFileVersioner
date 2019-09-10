@@ -1,9 +1,12 @@
-# JavaScript Action Template
+# VersionJSONFile
 
-This template offers an easy way to get started writing a JavaScript action with TypeScript compile time support, unit testing with Jest and using the GitHub Actions Toolkit.
+This Action allows the updating of one or more .JSON files with a version number string.
 
-## Getting Started
+The task takes the following parameters
 
-See the walkthrough located [here](https://github.com/actions/toolkit/blob/master/docs/javascript-action.md).
-
-In addition to walking your through how to create an action, it also provides strategies for versioning, releasing and referencing your actions.
+* Path filter to files to version, if left blank the cloned action repo root will be used.
+* Version number to add to the file(s)
+* Field: The version field to update
+* FilenamePattern: The filename pattern to update defaults to '.json'
+* Recursion: If true will search from specfied path for all matching files, default to true
+ 

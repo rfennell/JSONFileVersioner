@@ -1,10 +1,30 @@
-name: 'Node 12 Template Action'
-description: 'Get started with Node actions'
-author: 'GitHub'
+name: 'Apply Version to JSON file'
+description: 'Adds a version number to a field in a JSON file'
+author: 'Richard Fennell'
 inputs:
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+  Path:
+    description: 'Source folder Filter (folder under GITHUB_WORKSPACE)'
+    default: ''
+    required: false
+  VersionNumber:
+    description: 'Version Number'
+    default: ''
+    required: true
+  Field:
+    description: 'The version field to update, if blank all version fields are updated usually \"version\": \"1.1.1\"'
+    default: ''
+    required: false
+  FilenamePattern:
+    description: 'The filename extension to update e.g. .json'
+    default: '.json'
+    required: false
+  Recursion:
+    description: 'If true will search from specfied path for all matching files.'
+    default: 'true'
+    required: false
 runs:
   using: 'node12'
   main: 'lib/main.js'
+branding:
+  icon: 'file-text'  
+  color: 'green'
