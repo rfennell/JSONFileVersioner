@@ -25,6 +25,9 @@
     "fs": "^0.0.1-security",
     "os": "^0.1.1"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.4",
