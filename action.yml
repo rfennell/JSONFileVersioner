@@ -23,7 +23,7 @@ inputs:
     default: 'true'
     required: false
 runs:
-  using: 'node20'
+  using: 'node16'
   main: 'lib/main.js'
 branding:
   icon: 'file-text'  
