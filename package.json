@@ -5,9 +5,13 @@
   "description": "JSON File Versioner",
   "main": "lib/main.js",
   "scripts": {
-    "build": "npm run lint && tsc",
+    "build1": "npm run lint && tsc",
     "test": "jest",
-    "lint": "tslint -c tslint.json src/*.ts __tests__/*.test.ts"
+    "lint": "tslint -c tslint.json src/*.ts __tests__/*.test.ts",
+    "bundle": "npm run format:write && npm run package",
+    "package": "npx ncc build src/main.ts -o dist --source-map --license licenses.txt",
+    "package:watch": "npm run package -- --watch",
+    "all": "npm run test && npm run package"
   },
   "repository": {
     "type": "git",
@@ -35,6 +39,7 @@
     "json-diff": "^0.5.4",
     "ts-jest": "^29.1.2",
     "tslint": "^5.19.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.4",
+    "@vercel/ncc": "^0.38.1"
   }
 }

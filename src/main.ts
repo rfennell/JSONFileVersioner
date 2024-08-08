@@ -1,9 +1,7 @@
 import * as core from "@actions/core";
 import fs = require("fs");
 
-import { findFiles,
-  ProcessFile
-} from "./AppyVersionToJSONFileFunctions";
+import { findFiles, ProcessFile } from "./AppyVersionToJSONFileFunctions";
 import { version } from "@babel/core";
 import { CodeGenerator } from "@babel/generator";
 
@@ -17,11 +15,11 @@ async function run() {
 
     var outputversion = core.getInput("outputversion");
 
-    core.debug (`Source Directory Filter:  ${path}`);
-    core.debug (`Filename Pattern: ${filenamePattern}`);
-    core.debug (`File search recursion: ${recursion}`);
-    core.debug (`Version Number: ${versionNumber}`);
-    core.debug (`Field to update (all if empty): ${field}`);
+    core.debug(`Source Directory Filter:  ${path}`);
+    core.debug(`Filename Pattern: ${filenamePattern}`);
+    core.debug(`File search recursion: ${recursion}`);
+    core.debug(`Version Number: ${versionNumber}`);
+    core.debug(`Field to update (all if empty): ${field}`);
 
     path = `${process.env.GITHUB_WORKSPACE}/${path}`;
 
@@ -35,15 +33,14 @@ async function run() {
       var files = findFiles(path, filenamePattern, files, recursion);
 
       if (files.length > 0) {
-        core.debug (`Will apply ${versionNumber} to ${files.length} files.`);
-        files.forEach(file => {
+        core.debug(`Will apply ${versionNumber} to ${files.length} files.`);
+        files.forEach((file) => {
           ProcessFile(file, field, versionNumber);
         });
       } else {
         core.warning("Found no files.");
       }
     }
-
   } catch (error: any) {
     core.setFailed(error.message);
   }
